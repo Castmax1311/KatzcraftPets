@@ -1,0 +1,12 @@
+name: KatzcraftPets
+version: '1.0'
+main: de.castmax1311.katzcraftpets.Main
+api-version: '1.16'
+description: A plugin to help admins manage their server
+commands:
+  givepet:
+    description: Transfer your tamed animal to another player
+    usage: /givepet <petname> <spieler>
+  ridepet:
+    description: Let your pet carry you
+    usage: /ridepet
