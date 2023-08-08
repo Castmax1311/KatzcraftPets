@@ -2,7 +2,7 @@ name: KatzcraftPets
 version: '1.0'
 main: de.castmax1311.katzcraftpets.Main
 api-version: '1.16'
-description: A plugin to help admins manage their server
+description: A plugin to interact with your tamed pets
 commands:
   givepet:
     description: Transfer your tamed animal to another player
