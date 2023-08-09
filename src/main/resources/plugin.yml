@@ -1,5 +1,5 @@
 name: KatzcraftPets
-version: '1.0'
+version: '1.1'
 main: de.castmax1311.katzcraftpets.Main
 api-version: '1.16'
 description: A plugin to interact with your tamed pets
@@ -10,3 +10,6 @@ commands:
   ridepet:
     description: Let your pet carry you
     usage: /ridepet
+  tame:
+    description: Tame an untamed animal near you
+    usage: /tame

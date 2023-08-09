@@ -16,6 +16,15 @@ public final class Main extends JavaPlugin implements Listener {
         getLogger().info("KatzcraftPets plugin has been enabled.");
         getCommand("givepet").setExecutor(new GivepetCommand());
         getCommand("ridepet").setExecutor(new RidepetCommand());
+        getCommand("tame").setExecutor(new TameCommand());
+
+        new UpdateChecker(this, 111864).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                getLogger().info("No updates available");
+            } else {
+                getLogger().info("New update available!");
+            }
+        });
     }
 
     @Override
