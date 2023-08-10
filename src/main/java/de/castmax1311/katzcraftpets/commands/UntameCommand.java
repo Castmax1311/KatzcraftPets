@@ -5,11 +5,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.AnimalTamer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Tameable;
 
-public class TameCommand implements CommandExecutor {
+public class UntameCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -23,11 +24,14 @@ public class TameCommand implements CommandExecutor {
                 for (Entity entity : player.getNearbyEntities(1, 1, 1)) {
                     if (entity instanceof Tameable) {
                         Tameable tameable = (Tameable) entity;
-                        if (!tameable.isTamed()) {
-                            double distanceSquared = entity.getLocation().distanceSquared(player.getLocation());
-                            if (distanceSquared <= maxDistanceSquared && distanceSquared < closestDistanceSquared) {
-                                closestTameable = entity;
-                                closestDistanceSquared = distanceSquared;
+                        if (tameable.isTamed() && tameable.getOwner() instanceof AnimalTamer) {
+                            AnimalTamer owner = (AnimalTamer) tameable.getOwner();
+                            if (owner.getUniqueId().equals(player.getUniqueId())) {
+                                double distanceSquared = entity.getLocation().distanceSquared(player.getLocation());
+                                if (distanceSquared <= maxDistanceSquared && distanceSquared < closestDistanceSquared) {
+                                    closestTameable = entity;
+                                    closestDistanceSquared = distanceSquared;
+                                }
                             }
                         }
                     }
@@ -35,11 +39,11 @@ public class TameCommand implements CommandExecutor {
 
                 if (closestTameable != null) {
                     Tameable tameable = (Tameable) closestTameable;
-                    tameable.setTamed(true);
-                    tameable.setOwner(player);
-                    player.sendMessage(Main.formatMessage(ChatColor.GREEN + "Untamed animal successfully tamed!"));
+                    tameable.setTamed(false);
+                    tameable.setOwner(null);
+                    player.sendMessage(Main.formatMessage(ChatColor.GREEN + "Tamed animal successfully untamed!"));
                 } else {
-                    player.sendMessage(Main.formatMessage(ChatColor.RED + "No untamed animal found nearby"));
+                    player.sendMessage(Main.formatMessage(ChatColor.RED + "No tamed animal found nearby or you are not the owner"));
                 }
             } else {
                 player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to execute this command!"));

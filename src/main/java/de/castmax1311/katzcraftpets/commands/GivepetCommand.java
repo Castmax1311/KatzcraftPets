@@ -24,7 +24,7 @@ public class GivepetCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        if (args.length < 2) {
+        if (args.len
             sender.sendMessage(Main.formatMessage("Use: /givepet <petname> <player>"));
             return true;
         }

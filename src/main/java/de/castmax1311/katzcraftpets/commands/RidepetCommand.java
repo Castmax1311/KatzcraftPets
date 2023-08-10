@@ -26,7 +26,7 @@ public class RidepetCommand implements CommandExecutor {
             return true;
         }
 
-        for (Entity entity : player.getNearbyEntities(3, 3, 3)) {
+        for (Entity entity : player.getNearbyEntities(1, 1, 1)) {
             if (entity instanceof Tameable) {
                 Tameable tameable = (Tameable) entity;
                 if (tameable.isTamed() && tameable.getOwner() instanceof Player && tameable.getOwner().equals(player)) {
