@@ -6,7 +6,7 @@ description: A plugin to interact with your tamed pets
 commands:
   givepet:
     description: Transfer your tamed animal to another player
-    usage: /givepet <petname> <spieler>
+    usage: /givepet <petname> <player>
   ridepet:
     description: Let your pet carry you
     usage: /ridepet
