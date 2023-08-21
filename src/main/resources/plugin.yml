@@ -1,5 +1,5 @@
 name: KatzcraftPets
-version: '1.2'
+version: '1.3'
 main: de.castmax1311.katzcraftpets.Main
 api-version: '1.16'
 description: A plugin to interact with your tamed pets
@@ -16,3 +16,6 @@ commands:
   untame:
     description: Untame your tamed animal near you
     usage: /untame
+  saddle:
+    description: Put a saddle on a horse
+    usage: /saddle

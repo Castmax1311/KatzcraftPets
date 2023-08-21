@@ -16,7 +16,6 @@ public class UntameCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.isOp()) {
                 double maxDistanceSquared = 5 * 5;
                 Entity closestTameable = null;
                 double closestDistanceSquared = Double.MAX_VALUE;
@@ -45,10 +44,8 @@ public class UntameCommand implements CommandExecutor {
                 } else {
                     player.sendMessage(Main.formatMessage(ChatColor.RED + "No tamed animal found nearby or you are not the owner"));
                 }
-            } else {
-                player.sendMessage(Main.formatMessage(ChatColor.RED + "You don't have permission to execute this command!"));
             }
-        } else {
+        else {
             sender.sendMessage(Main.formatMessage(ChatColor.RED + "This command can only be executed by players!"));
         }
         return true;

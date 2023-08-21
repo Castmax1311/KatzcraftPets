@@ -18,6 +18,7 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("ridepet").setExecutor(new RidepetCommand());
         getCommand("tame").setExecutor(new TameCommand());
         getCommand("untame").setExecutor(new UntameCommand());
+        getCommand("saddle").setExecutor(new SaddleCommand());
 
         new UpdateChecker(this, 111864).getVersion(version -> {
             if (this.getDescription().getVersion().equals(version)) {
